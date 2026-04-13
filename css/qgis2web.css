@@ -196,7 +196,19 @@
             align-items: center;
         }
 
-.popupImage { 
-max-width: 200%; 
-max-height: auto; 
-} 
+.popupImage {
+    display: block;
+    /* Gunakan lebar tetap agar detail teks infografis terbaca */
+    width: 450px !important; 
+    
+    /* Menjaga proporsi gambar agar tidak gepeng */
+    height: auto !important; 
+    
+    /* Proteksi agar gambar tidak meluber jika dibuka di layar HP */
+    max-width: 100% !important; 
+    
+    /* Memberi sedikit jarak dan estetika */
+    margin: 10px auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
