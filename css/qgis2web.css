@@ -27,31 +27,37 @@
             background: #fff;
             padding-right: 10px;
         }
-        .leaflet-popup-scrolled {
-            border-bottom: unset!important;
-            border-top: unset!important;
-        }
-        .leaflet-popup-content{
-            max-height: 70vh;
-            max-width: 70vw;
-        }
-        .leaflet-popup-content.media{
-            width: auto!important;
-            height: auto!important;
-            overflow: auto;
-        }
-        .leaflet-popup-content th {
-            text-align: left;
-            vertical-align: top;
-            min-width: 75px;
-        }
-        .leaflet-popup-content td {
-            min-width: 75px;
-        }
-        .leaflet-popup-content td img {
-            max-height: 60vh;
-            max-width: 60vw;
-        }
+
+/* Tetapkan yang ini agar scrollbar tidak bergaris aneh */
+.leaflet-popup-scrolled {
+    border-bottom: unset!important;
+    border-top: unset!important;
+}
+
+/* PERBAIKAN: Kontainer utama harus mau melebar */
+.leaflet-popup-content {
+    max-height: 80vh; /* Batasi tinggi agar tidak tenggelam di layar */
+    width: auto !important; 
+    max-width: 85vw !important;
+    overflow-y: auto; /* Munculkan scroll jika infografis sangat panjang */
+    overflow-x: hidden;
+}
+
+/* Biarkan untuk kerapihan teks */
+.leaflet-popup-content th {
+    text-align: left;
+    vertical-align: top;
+    min-width: 75px;
+}
+
+/* PERBAIKAN UTAMA: Ukuran gambar infografis */
+.leaflet-popup-content td img {
+    display: block;
+    width: 500px !important; /* Paksa lebar ke 500px agar teks terbaca */
+    height: auto !important;
+    max-width: 100% !important; /* Aman untuk tampilan mobile */
+    margin-top: 5px;
+}
 
         .leaflet-tooltip {
             background: none;
@@ -195,20 +201,3 @@
             justify-content: center;
             align-items: center;
         }
-
-.popupImage {
-    display: block;
-    /* Gunakan lebar tetap agar detail teks infografis terbaca */
-    width: 450px !important; 
-    
-    /* Menjaga proporsi gambar agar tidak gepeng */
-    height: auto !important; 
-    
-    /* Proteksi agar gambar tidak meluber jika dibuka di layar HP */
-    max-width: 100% !important; 
-    
-    /* Memberi sedikit jarak dan estetika */
-    margin: 10px auto;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
